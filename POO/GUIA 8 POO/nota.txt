@@ -1,0 +1,20 @@
+se usaran varios metodos
+
+____________________________________metodos de instancia: 
+@classmethod ----- medoto de clase
+
+@staticmethod ---- metodo estatico----- no necesita de los atributos del constructor
+
+atributo de clase, estan por encima del contructor, osea el def __init__(self):
+
+cls--- atributo de la clase
+
+______________________________________métodos especiales:
+
+dunder---- es el __init__ y el __str__
+
+propiedades:
+
+@property---- {self_[nombre de atributo privado]} 
+
+@[nombre del metodo].setter ----- sirve paraa actualizar los datos de

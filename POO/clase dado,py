@@ -1,0 +1,87 @@
+import random
+class Dado:
+    def __init__(self, nombre_jugador, dado=0):
+        self._jugador = nombre_jugador
+        self._dado = dado
+        
+    @property
+    def jugador (self):
+        return  self._jugador
+    
+    @property
+    def dado(self):
+        return self._dado
+    
+    @jugador.setter
+    def jugador(self, nuevo_nombre_jugador):
+        self._jugador = nuevo_nombre_jugador
+        
+    @dado.setter
+    def dado (self,valor):
+        if valor < 0:
+            print("Error: No puede ser negativo")
+        else:
+            self._dado=valor
+            
+    def lanzar(self):
+        lanzamiento_dado = random.randint(1,6)
+        self.dado= lanzamiento_dado
+        
+        
+salir =True
+if  __name__ =="__main__":
+    jugador = None  
+    while salir:                          
+        print ("-----------LANZA DADOS HASTA 21--------")
+        print ("_____________Elija una opción_________")
+        print ("1: ingrese el nombre del jugador")
+        print ("2: lanzar dado")
+        print ("3: Sumar todas las respuestas del dado, hasta llegar a 21")
+        print ("4: Saber si ha ganado o perdido")
+        print ("5: Salir")
+        print ("----------------------------------------")
+        opcion = int(input("Escriba una opción: [1-5]: "))
+        if opcion == 1:
+            nombre = input("Escriba su nombre: ")
+            jugador= Dado(nombre)
+            
+        elif opcion == 2:
+            if jugador is None:
+                print("Ingrese un nombre: ")
+                nombre = input ("Escriba un nombre: ")
+                jugador =Dado (nombre)
+            else:
+                jugador.lanzar()
+                print(f"El jugador [{jugador.jugador}] lanzo el dado y saco [{jugador.dado}] \n")
+                
+        elif opcion == 3:
+            if jugador is None:
+                print("Ingurese un nombre: ")
+                nombre = input ("Escriba un nombre: ")
+                jugador =Dado (nombre)
+                
+            else:
+                suma_total = 0
+                while suma_total < 21:
+                    jugador.lanzar()
+                    suma_total += jugador.dado
+                    print(f"El jugador [{jugador.jugador}] lanzo el dado y saco [{jugador.dado}]. Suma total: [{suma_total}]\n")
+                if suma_total <= 21:
+                    print(f"Felicidades [{jugador.jugador}], has llegado a 21!\n")
+                else:
+                    print(f"El jugador [{jugador.jugador}], ha obtenido un total de {suma_total}.\n")
+                    
+        elif opcion == 4:
+            if jugador is None:
+                print("Ingrese un nombre: ")
+                nombre = input ("Escriba un nombre: ")
+                jugador =Dado (nombre)
+            else:
+                if suma_total == 21:
+                    print(f"Felicidades {jugador.jugador}, has ganado!\n")
+                else:
+                    print(f"Lo siento {jugador.jugador}, has perdido.\n")
+                    
+        elif opcion == 5:
+            salir = False
+            break

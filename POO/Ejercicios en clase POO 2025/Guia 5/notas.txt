@@ -1,0 +1,3 @@
+notas:
+
+el ordenamiento binario tiene la condición en la que la lista debe estar ordenada

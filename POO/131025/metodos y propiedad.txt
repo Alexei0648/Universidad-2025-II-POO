@@ -1,0 +1,24 @@
+Métodos de clase y estatico:
+
+--------------metodos de clase:----------------------
+
+-decorador @classmethod
+    def x (cls):
+
+-modifican
+- un atributo de clase no varia, como el valor de PI, u otros
+
+
+----------metodos estático:-----------
+-decorador @staticmethod
+
+- nombre_de_clase.atributo_de_clase
+
+
+
+
+
+______________________________________________
+_abributos de clase y atributo de instancia
+-------------------------------------------------
+
